@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>gifts sent 2.0</title>
+  <link rel="stylesheet" href="./sent-style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave a Gift or Message for Her</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCUUzZBp8JFm4iPvJRcQyVtiXoXGw5uIws",
+      authDomain: "website-for-her.firebaseapp.com",
+      projectId: "website-for-her",
+      storageBucket: "website-for-her.appspot.com",
+      messagingSenderId: "222084545714",
+      appId: "1:222084545714:web:3e1fec18a077db5980ddab"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const nameInput = document.getElementById("name");
+      const startButton = document.getElementById("startButton");
+      const mainContent = document.getElementById("mainContent");
+      const userNameDisplay = document.getElementById("userName");
+      const submitBtn = document.getElementById("submitBtn");
+      const messageInput = document.getElementById("message");
+      const popupModal = document.getElementById("popupModal");
+      const popupMessage = document.getElementById("popupMessage");
+      const closePopup = document.getElementById("closePopup");
+
+      // Start Button functionality
+      startButton.addEventListener("click", () => {
+        const userName = nameInput.value.trim();
+        if (userName) {
+          userNameDisplay.textContent = userName;
+          document.getElementById("introSection").style.display = "none";
+          mainContent.style.display = "block";
+        } else {
+          alert("Please enter your name to continue!");
+        }
+      });
+
+      // Submit Button functionality with Confetti effect
+      submitBtn.addEventListener("click", async () => {
+        const userName = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        const giftType = document.querySelector(".gift-options button.active")?.innerText || null;
+
+        if (!userName || (!message && !giftType)) {
+          alert("Please provide at least a message or select a gift type.");
+          return;
+        }
+
+        try {
+          await addDoc(collection(db, "gifts"), {
+            name: userName,
+            giftType: giftType,
+            message: message,
+            timestamp: new Date().toISOString()
+          });
+
+          alert("Your gift has been sent successfully!");
+          document.getElementById("gift-form").reset();
+
+          // Trigger confetti animation after successful submission
+          triggerConfetti();
+        } catch (error) {
+          console.error("Error sending gift: ", error);
+          alert("Failed to send gift. Please try again.");
+        }
+      });
+
+      // Gift buttons functionality
+      document.querySelectorAll(".gift-options button").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".gift-options button").forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          popupMessage.textContent = `You chose ${button.innerText}!`;
+          popupModal.style.display = "block";
+        });
+      });
+
+      // Close popup modal
+      closePopup.addEventListener("click", () => {
+        popupModal.style.display = "none";
+      });
+    });
+
+    // Function to trigger confetti animation
+    function triggerConfetti() {
+      const canvas = document.createElement('canvas');
+      document.body.appendChild(canvas);
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const ctx = canvas.getContext('2d');
+      const particles = [];
+      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+
+      class Confetti {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height - canvas.height;
+          this.size = Math.random() * 5 + 5;
+          this.speedX = Math.random() * 5 - 2.5;
+          this.speedY = Math.random() * 5 + 2;
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.y > canvas.height) {
+            this.y = -this.size;
+            this.x = Math.random() * canvas.width;
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      }
+
+      // Create particles
+      for (let i = 0; i < 500; i++) {
+        particles.push(new Confetti());
+      }
+
+      // Animation loop
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      // Remove canvas after animation is done
+      setTimeout(() => {
+        document.body.removeChild(canvas);
+      }, 3000); // Confetti lasts for 3 seconds
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <!-- Introduction Section -->
+    <section id="introSection">
+      <h1 class="title">Leave a Gift or Message for Her 💖</h1>
+      <p class="intro">Send her a sweet message or a thoughtful gift! Let's start with your name first!</p>
+      <label for="name">Enter Your Name: </label>
+      <input type="text" id="name" placeholder="Your name..." />
+      <button id="startButton">Start</button>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="mainContent" style="display: none;">
+      <h2>Hi <span id="userName"></span>, leave a special gift for her 💌</h2>
+
+      <!-- Gift Options -->
+      <section class="gift-options">
+        <button id="sendFlowers">🌸 Send Flowers</button>
+        <button id="sendChocolates">🍫 Send Chocolates</button>
+      </section>
+
+      <!-- Message Section -->
+      <section class="message-section">
+        <h3>Your Message 💌</h3>
+        <textarea id="message" placeholder="Write a message for her..."></textarea>
+      </section>
+
+      <button id="submitBtn">Submit Your Gift and Message</button>
+    </section>
+  </div>
+
+  <!-- Popup Modal -->
+  <div id="popupModal" class="popup" style="display: none;">
+    <div class="popup-content">
+      <span id="closePopup" class="close">&times;</span>
+      <p id="popupMessage"></p>
+    </div>
+  </div>
+</body>
+</html>
+<!-- partial -->
+  <script type="module" src="./sent-script.js"></script>
+
+</body>
+</html>
