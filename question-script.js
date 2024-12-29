@@ -25,5 +25,5 @@ document.getElementById('submit-answer').addEventListener('click', function () {
 
 document.getElementById('option2').addEventListener('click', function () {
     // Redirect to the main menu
-    window.location.href = " https://meow-370.github.io/kajalsspecialpage/userintro.html"; // Replace with the general main menu URL
+    window.location.href = "https://meow-370.github.io/kajalsspecialpage/userintro.html"; // Replace with the general main menu URL
 });
