@@ -1,0 +1,98 @@
+/* homepage-style.css */
+
+/* Universal Styles */
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #f0f4f8, #dfe7e9); /* Subtle gradient background */
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* Header */
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em;
+  color: #4A4A4A;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header p {
+  font-size: 1.3em;
+  color: #5A5A5A;
+  margin-top: 10px;
+}
+
+/* Intro Section */
+.intro {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #5A5A5A;
+  margin-bottom: 40px;
+}
+
+/* Navigation */
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation ul li {
+  margin: 20px 0;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #fff;
+  font-weight: 500;
+  padding: 15px 30px;
+  background-color: #5A88A5; /* Subtle blue-gray */
+  border-radius: 30px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navigation ul li a:hover {
+  background-color: #4B6F81; /* Darker blue-gray */
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  font-size: 1.1em;
+  color: #666;
+}
+
+.footer p {
+  margin: 0;
+  font-style: italic;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5em;
+  }
+
+  .navigation ul li a {
+    font-size: 1.3em;
+  }
+}
