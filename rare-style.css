@@ -1,0 +1,101 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dancing Script', cursive;
+    background: #f7f4e9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.title {
+    font-size: 3rem;
+    color: #8a2be2;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Gems gallery section */
+.gems-gallery h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #5a189a;
+    margin-bottom: 20px;
+}
+
+.gems {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.gem {
+    text-align: center;
+    max-width: 200px;
+}
+
+.gem img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gem-name {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #5a189a;
+}
+
+/* Rarest gem section */
+.rarest-gem {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.suspense {
+    font-size: 2.5rem;
+    color: #d00000;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.reveal-text {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.rarest-image {
+    text-align: center;
+}
+
+.rarest-image img {
+    max-width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+}
+
+.caption {
+    font-size: 1.8rem;
+    color: #8a2be2;
+}
+
+.caption span {
+    font-weight: bold;
+    color: #d00000;
+}

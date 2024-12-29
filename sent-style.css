@@ -1,0 +1,172 @@
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #d6689b;
+}
+
+h3 {
+  color: #d6689b;
+}
+
+.intro {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1.2em;
+  margin-top: 20px;
+  display: block;
+}
+
+input[type="text"], textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border-color: #ff6f91;
+}
+
+canvas {
+  border: 2px solid #cccccc;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+button {
+  background: #ff6f91;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #ff506e;
+}
+
+#thankYouMessage {
+  font-size: 1.2em;
+  color: #4caf50;
+  margin-top: 30px;
+}
+
+/* Gift Options Section */
+.gift-options {
+  margin-top: 20px;
+}
+
+.gift-options button {
+  background: #ff6f91;
+  margin: 10px;
+}
+
+/* Greeting Text */
+.greeting {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5em;
+  color: #d6689b;
+  margin-bottom: 30px;
+}
+
+/* Pop-up Modal Styles */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  margin: 15% auto;
+  text-align: center;
+}
+
+.popup p {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #ff6f91;
+  text-decoration: none;
+}
+
+/* Confetti Effect */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff6f91;
+  animation: confetti-fall linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
