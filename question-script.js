@@ -13,7 +13,7 @@ document.getElementById('submit-answer').addEventListener('click', function () {
         feedback.style.color = "green";
         feedback.classList.remove('hidden');
         setTimeout(() => {
-            window.location.href = "exclusive-page.html"; // Replace with her exclusive page URL
+            window.location.href = "https://www.instagram.com/iblame_sh__/"; // Replace with her exclusive page URL
         }, 2000); // Redirect after 2 seconds
     } else {
         // Wrong answer
@@ -25,5 +25,5 @@ document.getElementById('submit-answer').addEventListener('click', function () {
 
 document.getElementById('option2').addEventListener('click', function () {
     // Redirect to the main menu
-    window.location.href = "main-menu.html"; // Replace with the general main menu URL
+    window.location.href = " https://meow-370.github.io/kajalsspecialpage/userintro.html"; // Replace with the general main menu URL
 });
