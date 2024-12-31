@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 2500);  /* Shortened display time */
         } else {
             // After the animation ends, redirect to the user homepage
-            window.location.href = " https://meow-370.github.io/kajalsspecialpage/userhp.html"; // Replace this URL with the actual URL of the user homepage
+            window.location.href = "https://shravan2348.github.io/onlyforkajal/exclusivehomepage.html"; // Replace this URL with the actual URL of the user homepage
         }
     }
 
