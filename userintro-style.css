@@ -93,3 +93,22 @@ audio {
 }
 
 /* Rest of your CSS remains the same */
+/* Add this to your existing CSS */
+.skip-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFD700;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.skip-btn:hover {
+    background-color: #ffcc00;
+}
